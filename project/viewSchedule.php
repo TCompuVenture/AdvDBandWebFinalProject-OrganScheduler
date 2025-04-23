@@ -23,7 +23,7 @@ echo '<table width="60%">
 <tr>
 	<th align="left"><strong>Time</strong></th>
 	<th align="left"><strong>Event</strong></th>
-	<th align="left"><UserID associated with event>Time</strong></th>
+	<th align="left"><UserID associated with event>UserID</strong></th>
 	<th align="left"><strong>Claim / request a time</strong></th>
 
 </tr>
@@ -55,9 +55,7 @@ while ($startTime < $endTime) {
     $q_old = mysqli_prepare($dbc, "SELECT eventTitle FROM eventskeeper WHERE start_time = ?");
 
     //Q2 does date
-    $q = mysqli_prepare($dbc, "SELECT eventTitle FROM eventskeeper WHERE start_time = ? AND eventDate = ?");
-
-
+    $q = mysqli_prepare($dbc, "SELECT eventTitle, userID FROM eventskeeper WHERE start_time = ? AND eventDate = ?");
 
     if ($q === false) {
         die("Prepare failed: " . mysqli_error($dbc));
@@ -74,12 +72,14 @@ while ($startTime < $endTime) {
     $r = mysqli_stmt_get_result($q);
     $num = @mysqli_num_rows($r);
     $event = 'Available';
+    $userID = '-';
 
     //Date stored in DB as '2023-12-31'
     //if an event's time matches current time, insert into table.
     if ($num == 1) { // Match was made.
         while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
             $event = $row['eventTitle'];
+            $userID = $row['userID'];
         }
     }
     else {
@@ -114,7 +114,7 @@ while ($startTime < $endTime) {
     <tr bgcolor=" . $bg . " id='time.$timeString'>
     	<td align='left' class='time'><p>$timeString</p>
         <td align='left'><p>$event</p>
-        <td align='left'><p>UserID will go here (from DB)</p>
+        <td align='left'><p>$userID</p>
         <td align='left'><input type='checkbox' onclick='saveIntoForm(this)'>	
     </tr>
     ";
