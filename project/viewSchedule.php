@@ -255,7 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </form>
 
 <!--I do not know why this appears above the form. Future problem!-->
-<h1>Testing...Should be below table, but...Future problem.</h1>
+<h1>Testing...in future, this should be BELOW table.</h1>
 
     </body>
 </html>

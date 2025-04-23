@@ -24,7 +24,8 @@
             <img src="/includes_4both/logo.jpeg" alt="Site logo." style="height:25%; width: 25%; float: right">
         </div>
         <br>
-        <p class="p.styled-boxed-para">This is a website where I'm going to showcase all of the cool things I learn in this class! This section
+        <!--clear: both = no floating things on either side of me!-->
+        <p class="p.styled-boxed-para" style="clear:both">This is a website where I'm going to showcase all of the cool things I learn in this class! This section
         is showcasing the p tag.</p>
         <p style="float: right">Before we move on, admire the break between this paragraph and the last one. Cool, right?
         Yup. The br tag. <b><i><u>Any guesses what this section is showcasing?</u></i></b> You got it! The right align and text formatting
