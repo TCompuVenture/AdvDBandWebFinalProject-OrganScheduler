@@ -1,0 +1,7 @@
+{
+    "livePreviewUseDevServer": true,
+    "livePreviewServerURL": "http://localhost",
+    "livePreviewServerProjectPath": "/project/'Advanced DB and Web project'",
+    "livePreviewHotReloadSupported": true,
+    "livePreviewFramework": "Custom"
+}
