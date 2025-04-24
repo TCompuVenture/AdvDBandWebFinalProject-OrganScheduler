@@ -215,6 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!--Format + display today's date. !-->
 <script>
     function formatAndDisplayDate() {
+        //Yes, I know I have a TZ issue...
         var today=new Date();
         //Future: Careful with SYSTEM vs. SERVER time...
         var date=today.toISOString().slice(0, 10);
